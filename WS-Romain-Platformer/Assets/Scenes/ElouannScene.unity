@@ -1097,7 +1097,7 @@ Transform:
   m_GameObject: {fileID: 841739647}
   serializedVersion: 2
   m_LocalRotation: {x: -0.04948891, y: -0.025390979, z: 0.00054874853, w: 0.99845177}
-  m_LocalPosition: {x: -12.38, y: 1.9, z: -0.2522}
+  m_LocalPosition: {x: -12.219, y: 1.9, z: -0.2522}
   m_LocalScale: {x: 2.267241, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1113,11 +1113,12 @@ GameObject:
   m_Component:
   - component: {fileID: 845710801}
   - component: {fileID: 845710800}
+  - component: {fileID: 845710810}
   - component: {fileID: 845710802}
   - component: {fileID: 845710805}
   - component: {fileID: 845710807}
-  - component: {fileID: 845710799}
   - component: {fileID: 845710809}
+  - component: {fileID: 845710799}
   - component: {fileID: 845710803}
   - component: {fileID: 845710806}
   - component: {fileID: 845710808}
@@ -1200,6 +1201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37338dd3f73a75b4381ca2a397dc1d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerNormalStateData: {fileID: 11400000, guid: 75f51b6f3515eb94d83ac9e62be6c3bc, type: 2}
+  _playerRollStateData: {fileID: 11400000, guid: ab5c4e26231977c439f71a511128cfb1, type: 2}
 --- !u!50 &845710803
 Rigidbody2D:
   serializedVersion: 4
@@ -1239,10 +1242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e85ea91f2b8274eb0cad805fc6afe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 105
-  _acceleration: 75
-  _decceleration: 225
-  _velPower: 0.87
+  _data: {fileID: 11400000, guid: 75f51b6f3515eb94d83ac9e62be6c3bc, type: 2}
 --- !u!58 &845710806
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1293,7 +1293,6 @@ MonoBehaviour:
   _jumpForce: 200
   groundCheckTransform: {fileID: 911389745}
   _groundChezSize: {x: 0.4, y: 0.1}
-  _jumpCutMultiplier: 0.25
 --- !u!96 &845710808
 TrailRenderer:
   serializedVersion: 3
@@ -1302,7 +1301,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845710798}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1410,6 +1409,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe7b9e4c94c4b34abf573566a5dc91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &845710810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845710798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e803840862934645afbf0bd4d0d3ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 75f51b6f3515eb94d83ac9e62be6c3bc, type: 2}
 --- !u!1 &911389744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,7 +1879,7 @@ Transform:
   m_GameObject: {fileID: 1730303762}
   serializedVersion: 2
   m_LocalRotation: {x: -0.05553395, y: -0.0031357906, z: -0.40447307, w: 0.9128569}
-  m_LocalPosition: {x: -16.93, y: 6.76, z: -0.2522}
+  m_LocalPosition: {x: -16.67, y: 5.81, z: -0.2522}
   m_LocalScale: {x: 11.058906, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1885,6 +1897,7 @@ GameObject:
   - component: {fileID: 1737513563}
   - component: {fileID: 1737513562}
   - component: {fileID: 1737513565}
+  - component: {fileID: 1737513566}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2010,6 +2023,18 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1737513566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737513561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba23f25a5da3f24582d47819e5841e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1765157019
 GameObject:
   m_ObjectHideFlags: 0

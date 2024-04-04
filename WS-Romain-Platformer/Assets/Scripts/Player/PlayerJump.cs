@@ -7,16 +7,15 @@ using UnityEngine.InputSystem;
 public class PlayerJump : MonoBehaviour
 {
     private PlayerInput _input;
+    private PlayerMain _main;
     private Rigidbody2D _rb;
     [SerializeField]
     private float _jumpForce;
     [SerializeField]
-    private Transform groundCheckTransform;    
+    private Transform groundCheckTransform;
     private Vector2 _groundCheckPoint;
     [SerializeField]
     private Vector2 _groundChezSize;
-    [SerializeField]
-    private float _jumpCutMultiplier = 0.5f;
     //[SerializeField]
     //private float _coyoteTimeDuration;
     //private float _coyoteTimer;
@@ -25,6 +24,7 @@ public class PlayerJump : MonoBehaviour
     private void Awake()
     {
         _input = GetComponent<PlayerInput>();
+        _main = GetComponent<PlayerMain>();
         _rb = GetComponent<Rigidbody2D>();
         var inputManager = this.GetComponent<InputManager>();
         inputManager.Jump += this.Jump;
@@ -33,20 +33,20 @@ public class PlayerJump : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
             if (_canJump /*| _coyoteTimer > 0*/)
             {
                 //_coyoteTimer = 0;
                 _rb.velocity = new Vector2(_rb.velocity.x, 0);
-                _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-                
+                _rb.AddForce(Vector2.up * _main._data.JumpForce, ForceMode2D.Impulse);
+
                 _canJump = false;
             }
         }
         if (context.canceled)
         {
-            _rb.AddForce(Vector2.down * _rb.velocity.y * (1 - _jumpCutMultiplier), ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.down * _rb.velocity.y * (1 - _main._data.JumpCutMultiplier), ForceMode2D.Impulse);
         }
     }
 

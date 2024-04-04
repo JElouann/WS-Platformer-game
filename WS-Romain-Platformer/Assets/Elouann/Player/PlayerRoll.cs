@@ -7,7 +7,7 @@ public class PlayerRoll : MonoBehaviour
 {
     private PlayerInput _input;
     private Rigidbody2D _rb;
-    private bool _isRolling;
+
     private PlayerMain _playerMain;
 
     [SerializeField]
@@ -26,23 +26,27 @@ public class PlayerRoll : MonoBehaviour
 
     private void Roll(InputAction.CallbackContext context)
     {
-        if (_isRolling)
+        if (_playerMain.isRolling)
         {
-            //_playerMovement.rollMultiplier = 1.5f;
-            _isRolling = false;
+            _playerMain.isRolling = false;
             _playerMain._data = _playerNormalStateData;
-            Debug.Log("not rolling");
+            //Debug.Log("not rolling");
         }
         else
         {
-            if(_rb.velocity.x >= _playerMain._data.TopSpeed)
+            if(_rb.velocity.x >= _playerMain._data.TopSpeed || _rb.velocity.x <= -_playerMain._data.TopSpeed)
             {
-                _isRolling = true;
+                _playerMain.isRolling = true;
                 _playerMain._data = _playerRollStateData;
-                Debug.Log("max speed, is rolling");
+                //Debug.Log("max speed, is rolling");
             }
         }
-        //Debug.Log("WIYAAHAH");
-        //_rb.freezeRotation = false;
+    }
+
+    public void StopRoll()
+    {
+        _playerMain.isRolling = false;
+        _playerMain._data = _playerNormalStateData;
+        //Debug.Log("not rolling");
     }
 }

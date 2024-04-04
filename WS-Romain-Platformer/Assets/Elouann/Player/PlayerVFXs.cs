@@ -22,15 +22,15 @@ public class PlayerVFXs : MonoBehaviour
         _camera.DOShakePosition(duration, vibrato);
     }
 
-    public void EnableTrail(bool enable)
+    public void IsLongTrail(bool isLong)
     {
-        if (enable)
+        if (isLong)
         {
-            _trail.enabled = true;
+            _trail.time = 0.08f;
         }
         else
         {
-            _trail.enabled = false;
+            _trail.time = 0.03f;
         }
     }
 }

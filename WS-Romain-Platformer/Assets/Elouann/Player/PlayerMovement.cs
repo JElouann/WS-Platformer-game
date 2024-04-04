@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,13 +11,15 @@ public class PlayerMovement : MonoBehaviour
 {
     private PlayerInput _input;
     private PlayerMain _main;
-
+    private PlayerVFXs _playerVFXs;
+    
     private Rigidbody2D _rb;
 
-    
     public SO_PlayerData _data;
 
-    private PlayerVFXs _playerVFXs;
+    [SerializeField]
+    private float _switchSideTimer;
+
     private float _lastFrameVelocity;
     private float _currentFrameVelocity;
     private bool _screenShakePlayed;
@@ -42,10 +45,13 @@ public class PlayerMovement : MonoBehaviour
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, _main._data.VelPower) * Mathf.Sign(speedDif);
         _rb.AddForce(movement * Vector2.right);
 
-        if (_lastFrameVelocity - _currentFrameVelocity > 20)
+
+        if (_lastFrameVelocity - _currentFrameVelocity > 52.5f || _lastFrameVelocity - _currentFrameVelocity < -52.5f)
         {
             if (!_screenShakePlayed)
             {
+                print("stop");
+                _main.SwitchRollMode(false);
                 _playerVFXs.SimpleScreenShake(0.75f, (_lastFrameVelocity - _currentFrameVelocity) / 50);
                 _screenShakePlayed = true;
             }
@@ -53,6 +59,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _screenShakePlayed = false;
+        }
+
+        if (_rb.velocity.x >= _main._data.TopSpeed || _rb.velocity.x <= -_main._data.TopSpeed)
+        {
+            //print("MAX SPEED");
+        }
+        else
+        {
+            //print("not max speed");
         }
     }
 }

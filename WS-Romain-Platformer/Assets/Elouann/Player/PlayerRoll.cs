@@ -30,7 +30,6 @@ public class PlayerRoll : MonoBehaviour
         {
             _playerMain.isRolling = false;
             _playerMain._data = _playerNormalStateData;
-            //Debug.Log("not rolling");
         }
         else
         {
@@ -38,7 +37,6 @@ public class PlayerRoll : MonoBehaviour
             {
                 _playerMain.isRolling = true;
                 _playerMain._data = _playerRollStateData;
-                //Debug.Log("max speed, is rolling");
             }
         }
     }
@@ -47,6 +45,5 @@ public class PlayerRoll : MonoBehaviour
     {
         _playerMain.isRolling = false;
         _playerMain._data = _playerNormalStateData;
-        //Debug.Log("not rolling");
     }
 }

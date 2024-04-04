@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Transform _objectToFollow;
+    [SerializeField]
+    private float _delay;
+    private bool _isDeactivate;
+
+    private void Start()
     {
-        
+        StartCoroutine(Follow(_delay));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Follow(float delay)
     {
-        
+        while (!_isDeactivate)
+        {
+            yield return new WaitForSeconds(delay);
+            gameObject.transform.position = _objectToFollow.position;
+        }
     }
 }

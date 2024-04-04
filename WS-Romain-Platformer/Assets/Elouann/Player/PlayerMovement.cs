@@ -50,9 +50,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!_screenShakePlayed)
             {
-                print("stop");
                 _main.SwitchRollMode(false);
-                _playerVFXs.SimpleScreenShake(0.75f, (_lastFrameVelocity - _currentFrameVelocity) / 50);
+                _playerVFXs.SimpleScreenShake(0.75f, (_lastFrameVelocity - _currentFrameVelocity) / 40);
                 _screenShakePlayed = true;
             }
         }

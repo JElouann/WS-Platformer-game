@@ -33,7 +33,7 @@ public class PlayerRoll : MonoBehaviour
         }
         else
         {
-            if (_rb.velocity.x >= _playerMain._data.TopSpeed || _rb.velocity.x <= -_playerMain._data.TopSpeed)
+            if(_rb.velocity.x >= _playerMain._data.TopSpeed || _rb.velocity.x <= -_playerMain._data.TopSpeed)
             {
                 _playerMain.isRolling = true;
                 _playerMain._data = _playerRollStateData;
@@ -47,4 +47,3 @@ public class PlayerRoll : MonoBehaviour
         _playerMain._data = _playerNormalStateData;
     }
 }
-

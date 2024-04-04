@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput _input;
     private PlayerMain _main;
     private PlayerVFXs _playerVFXs;
-
+    
     private Rigidbody2D _rb;
 
     public SO_PlayerData _data;
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             if (!_screenShakePlayed)
             {
                 _main.SwitchRollMode(false);
-                _playerVFXs.SimpleScreenShake(0.5f, (_lastFrameVelocity - _currentFrameVelocity) / 40);
+                _playerVFXs.SimpleScreenShake(0.75f, (_lastFrameVelocity - _currentFrameVelocity) / 40);
                 _screenShakePlayed = true;
             }
         }

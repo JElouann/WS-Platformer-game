@@ -12,6 +12,7 @@ public class PlayerRoll : MonoBehaviour
 
     [SerializeField]
     private SO_PlayerData _playerNormalStateData;
+
     [SerializeField]
     private SO_PlayerData _playerRollStateData;
 

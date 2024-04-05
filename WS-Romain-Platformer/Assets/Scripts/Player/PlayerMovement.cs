@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private PlayerInput _input;
     private PlayerMain _main;
+
     private PlayerVFXs _playerVFXs;
     
     private Rigidbody2D _rb;
@@ -18,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public SO_PlayerData _data;
 
     [SerializeField]
-    private float _switchSideTimer;
+    private AudioClip _collisionSound;
 
     private float _lastFrameVelocity;
     private float _currentFrameVelocity;
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
             if (!_screenShakePlayed)
             {
                 _main.SwitchRollMode(false);
+                SoundManager.Instance.PlaySound(_collisionSound);
                 _playerVFXs.SimpleScreenShake(0.75f, (_lastFrameVelocity - _currentFrameVelocity) / 40);
                 _screenShakePlayed = true;
             }

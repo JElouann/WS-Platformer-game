@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
         this._input = this.GetComponent<PlayerInput>();
         this._input.onActionTriggered += this.OnInput;
     }
-
+     
     private void OnInput(InputAction.CallbackContext context)
     {
         switch (context.action.name)

@@ -5,6 +5,7 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
     private Transform _objectToFollow;
+    
     [SerializeField]
     private Vector3 _offset;
     [SerializeField]

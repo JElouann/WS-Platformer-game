@@ -16,10 +16,11 @@ public class PlayerJump : MonoBehaviour
     private Vector2 _groundCheckPoint;
     [SerializeField]
     private Vector2 _groundChezSize;
-    //[SerializeField]
-    //private float _coyoteTimeDuration;
-    //private float _coyoteTimer;
+    
     private bool _canJump;
+
+    [SerializeField]
+    private AudioClip _jumpSound;
 
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class PlayerJump : MonoBehaviour
                 //_coyoteTimer = 0;
                 _rb.velocity = new Vector2(_rb.velocity.x, 0);
                 _rb.AddForce(Vector2.up * _main._data.JumpForce, ForceMode2D.Impulse);
-
+                SoundManager.Instance.PlaySound(_jumpSound);
                 _canJump = false;
             }
         }

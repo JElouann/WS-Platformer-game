@@ -9,8 +9,7 @@ public class PlayerJump : MonoBehaviour
     private PlayerInput _input;
     private PlayerMain _main;
     private Rigidbody2D _rb;
-    [SerializeField]
-    private float _jumpForce;
+
     [SerializeField]
     private Transform groundCheckTransform;
     private Vector2 _groundCheckPoint;

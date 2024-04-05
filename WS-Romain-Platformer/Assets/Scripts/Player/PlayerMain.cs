@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerMain : MonoBehaviour
 {
     public SO_PlayerData _data;
-
+    
     private PlayerRoll _roll;
 
+    public bool canRoll;
     public bool isRolling;
-    public bool isInAir;
 
     [SerializeField]
     private AudioClip _music;
@@ -34,6 +34,11 @@ public class PlayerMain : MonoBehaviour
 
     private void Start()
     {
-        //SoundManager.Instance.PlayMusic(_music);
+        SoundManager.Instance.PlayMusic(_music);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("wou");
     }
 }

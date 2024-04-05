@@ -47,4 +47,10 @@ public class PlayerRoll : MonoBehaviour
         _playerMain.isRolling = false;
         _playerMain._data = _playerNormalStateData;
     }
+
+    public void RollV2()
+    {
+        _playerMain.isRolling = true;
+        _playerMain._data = _playerRollStateData;
+    }
 }

@@ -46,9 +46,11 @@ public class PlayerMovement : MonoBehaviour
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, _main._data.VelPower) * Mathf.Sign(speedDif);
         _rb.AddForce(movement * Vector2.right);
 
+        //Debug.Log(_main.canRoll);
 
         if (_lastFrameVelocity - _currentFrameVelocity > 52.5f || _lastFrameVelocity - _currentFrameVelocity < -52.5f)
         {
+            
             if (!_screenShakePlayed)
             {
                 _main.SwitchRollMode(false);
@@ -65,10 +67,12 @@ public class PlayerMovement : MonoBehaviour
         if (_rb.velocity.x >= _main._data.TopSpeed || _rb.velocity.x <= -_main._data.TopSpeed)
         {
             //print("MAX SPEED");
+            _main.canRoll = true;
         }
         else
         {
             //print("not max speed");
+            _main.canRoll = false;
         }
     }
 }

@@ -19,6 +19,8 @@ public class PlayerVFXs : MonoBehaviour
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Color _blinkColor;
 
+    [SerializeField] private ParticleSystem _smokeTrailSystem;
+
     private void Awake()
     {
         _camera = Camera.main;
@@ -35,7 +37,31 @@ public class PlayerVFXs : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _toStretch.transform.localScale = new Vector3(_rb.velocity.x / 30 + 1, _rb.velocity.y / 50 + 1);
+        if (_rb.velocity.x < 0.1f && _rb.velocity.x > -0.1f)
+        {
+            //_smokeTrailSystem.gameObject.SetActive(false);
+        }
+        else if (_rb.velocity.x >= -0.1f)
+        {
+            _toStretch.transform.localScale = new Vector3(_rb.velocity.x / 50 + 1, _rb.velocity.y / 50 + 1);
+            //_smokeTrailSystem.gameObject.SetActive(true);
+        }
+        else
+        {
+            _toStretch.transform.localScale = new Vector3(_rb.velocity.x / 50 - 1, _rb.velocity.y / 50 + 1);
+            //_smokeTrailSystem.gameObject.SetActive(true);
+        }
+
+        if (_main.canRoll)
+        {
+            _smokeTrailSystem.gameObject.SetActive(true);
+        }
+        else
+        {
+            _smokeTrailSystem.gameObject.SetActive(false);
+        }
+
+
     }
 
     public void SimpleScreenShake(float duration, float vibrato)

@@ -37,8 +37,13 @@ public class PlayerMain : MonoBehaviour
         SoundManager.Instance.PlayMusic(_music);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Roll()
     {
-        Debug.Log("wou");
+        _roll.RollV2();
+    }
+
+    public void StopRoll()
+    {
+        _roll.StopRoll();
     }
 }

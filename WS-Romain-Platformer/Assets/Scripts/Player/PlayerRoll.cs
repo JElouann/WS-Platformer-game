@@ -37,6 +37,7 @@ public class PlayerRoll : MonoBehaviour
             if(_rb.velocity.x >= _playerMain._data.TopSpeed || _rb.velocity.x <= -_playerMain._data.TopSpeed)
             {
                 _playerMain.isRolling = true;
+                Debug.Log("AAAAAAAAH");
                 _playerMain._data = _playerRollStateData;
             }
         }

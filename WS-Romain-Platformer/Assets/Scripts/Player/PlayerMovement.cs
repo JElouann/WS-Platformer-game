@@ -64,14 +64,16 @@ public class PlayerMovement : MonoBehaviour
             _screenShakePlayed = false;
         }
 
-        if (_rb.velocity.x >= _main._data.TopSpeed || _rb.velocity.x <= -_main._data.TopSpeed)
+        if (_rb.velocity.x >= _main._data.TopSpeed-1 || _rb.velocity.x <= -_main._data.TopSpeed+1)
         {
             //print("MAX SPEED");
+            //_main.Roll();
             _main.canRoll = true;
         }
         else
         {
             //print("not max speed");
+            //_main.StopRoll();
             _main.canRoll = false;
         }
     }

@@ -21,8 +21,10 @@ public class EnemyKiller : MonoBehaviour
             EnemyMovement _enemy = collision.gameObject.GetComponent<EnemyMovement>();
             _enemy.enabled = false;
             _enemy._rb.constraints = RigidbodyConstraints2D.None;
-            _enemy._rb.AddForce(new Vector2(1,1) * _fling, ForceMode2D.Impulse);
+            _enemy._bc2D.enabled = false;
+            _enemy._rb.AddForce(new Vector2(Random.Range(1, 5),Random.Range(1,5))* _fling, ForceMode2D.Impulse);
             _enemy.transform.DORotate(new Vector3 (0, 0, 270f), 0.1f);
+            SendMessage("CallRemover");
         }
     }
 }

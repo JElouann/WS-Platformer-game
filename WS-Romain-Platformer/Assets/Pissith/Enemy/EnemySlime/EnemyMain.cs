@@ -9,5 +9,7 @@ public class EnemyMain : MonoBehaviour
 
     public EnemyMovement EnemyMovement { get; private set; }
 
+    public EnemyRemover enemyRemover { get; private set; }
+
 
 }

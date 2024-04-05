@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc79da78b241c4182c51cc8641e133, type: 3}
   m_Name: PlayerRoll
   m_EditorClassIdentifier: 
-  TopSpeed: 105
-  Acceleration: 75
-  Decceleration: 225
-  VelPower: 0.87
+  TopSpeed: 210
+  Acceleration: 150
+  Decceleration: 450
+  VelPower: 0.92
   JumpForce: 200
   JumpCutMultiplier: 0.25

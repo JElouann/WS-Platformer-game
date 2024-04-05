@@ -15,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform _currentPoint;
 
+    public BoxCollider2D _bc2D;
+
     internal Rigidbody2D _rb;
 
     public void OnPatrol()
@@ -53,6 +55,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        _bc2D = GetComponent<BoxCollider2D>();
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _currentPoint = _pointB.transform;
